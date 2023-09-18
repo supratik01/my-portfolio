@@ -6,6 +6,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Your Portfolio</title>
     <link rel="stylesheet" href="styles.css">
+    <base id="baseTag" href="" />
+    <script>
+        console.log(window.location.host);
+        document.getElementById("baseTag").setAttribute("href", `${window.location.host}/my-portfolio`);
+    </script>
 </head>
 
 
