@@ -1,0 +1,834 @@
+<!DOCTYPE html>
+<html lang="en" class="dark">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Supratik Das — Analyst - SD</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;700;800&family=Inter:wght@400;500;600&family=Space+Grotesk:wght@400;500;700&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+  tailwind.config = {
+    darkMode: "class",
+    theme: {
+      extend: {
+        colors: {
+          "primary-fixed": "#c4e7ff",
+          "secondary": "#bcc7de",
+          "background": "#0b1326",
+          "on-secondary-fixed-variant": "#3c475a",
+          "on-primary-fixed": "#001e2c",
+          "tertiary-fixed-dim": "#4edea3",
+          "surface-tint": "#7bd0ff",
+          "on-secondary": "#263143",
+          "surface-container-low": "#131b2e",
+          "on-surface-variant": "#c6c6cd",
+          "on-primary-fixed-variant": "#004c69",
+          "on-secondary-fixed": "#111c2d",
+          "on-primary": "#00354a",
+          "outline": "#909097",
+          "surface-container": "#171f33",
+          "on-background": "#dae2fd",
+          "outline-variant": "#45464d",
+          "surface-variant": "#2d3449",
+          "on-tertiary-fixed": "#002113",
+          "tertiary-container": "#001c10",
+          "error-container": "#93000a",
+          "secondary-fixed": "#d8e3fb",
+          "inverse-on-surface": "#283044",
+          "surface-dim": "#0b1326",
+          "surface-container-lowest": "#060e20",
+          "primary-fixed-dim": "#7bd0ff",
+          "inverse-primary": "#00668a",
+          "on-tertiary-container": "#009365",
+          "secondary-fixed-dim": "#bcc7de",
+          "on-surface": "#dae2fd",
+          "secondary-container": "#3e495d",
+          "surface-bright": "#31394d",
+          "on-error": "#690005",
+          "surface": "#0b1326",
+          "on-tertiary": "#003824",
+          "error": "#ffb4ab",
+          "tertiary-fixed": "#6ffbbe",
+          "surface-container-highest": "#2d3449",
+          "on-tertiary-fixed-variant": "#005236",
+          "on-primary-container": "#008abb",
+          "primary": "#7bd0ff",
+          "primary-container": "#001a27",
+          "on-secondary-container": "#aeb9d0",
+          "tertiary": "#4edea3",
+          "on-error-container": "#ffdad6",
+          "surface-container-high": "#222a3d",
+          "inverse-surface": "#dae2fd"
+        },
+        fontFamily: {
+          "headline": ["Manrope"],
+          "body": ["Inter"],
+          "label": ["Space Grotesk"]
+        },
+        borderRadius: { "DEFAULT": "0.125rem", "lg": "0.25rem", "xl": "0.5rem", "full": "0.75rem" },
+      },
+    },
+  }
+</script>
+<style>
+  .material-symbols-outlined {
+    font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+  }
+  html { scroll-behavior: smooth; }
+  body { background-color: #0b1326; color: #dae2fd; font-family: 'Inter', sans-serif; }
+  ::-webkit-scrollbar { width: 3px; }
+  ::-webkit-scrollbar-track { background: #0b1326; }
+  ::-webkit-scrollbar-thumb { background: #7bd0ff; border-radius: 2px; }
+
+  /* noise overlay */
+  body::after {
+    content: '';
+    position: fixed;
+    inset: 0;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.03'/%3E%3C/svg%3E");
+    pointer-events: none;
+    z-index: 999;
+  }
+
+  /* grid bg */
+  .grid-bg {
+    background-image:
+      linear-gradient(rgba(123,208,255,0.04) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(123,208,255,0.04) 1px, transparent 1px);
+    background-size: 52px 52px;
+    mask-image: radial-gradient(ellipse 80% 70% at 50% 40%, black 20%, transparent 80%);
+  }
+
+  /* glow orbs */
+  .orb-primary {
+    background: radial-gradient(circle, rgba(123,208,255,0.10) 0%, transparent 70%);
+    animation: floatOrb 9s ease-in-out infinite;
+  }
+  .orb-tertiary {
+    background: radial-gradient(circle, rgba(78,222,163,0.07) 0%, transparent 70%);
+    animation: floatOrb 11s ease-in-out infinite reverse;
+  }
+  @keyframes floatOrb {
+    0%,100% { transform: translate(0,0); }
+    50% { transform: translate(18px,-18px); }
+  }
+
+  /* bar animation */
+  .bar-fill { transition: width 1.2s cubic-bezier(0.16,1,0.3,1); }
+
+  /* fade in */
+  .fade-up { opacity:0; transform:translateY(20px); transition: opacity 0.65s ease, transform 0.65s ease; }
+  .fade-up.show { opacity:1; transform:translateY(0); }
+  .delay-1 { transition-delay: 0.1s; }
+  .delay-2 { transition-delay: 0.2s; }
+  .delay-3 { transition-delay: 0.3s; }
+
+  /* nav active */
+  .nav-link.active { color: #7bd0ff; }
+  .nav-link.active::after { transform: scaleX(1) !important; }
+
+  /* scroll caret */
+  @keyframes caretPulse {
+    0%,100% { opacity:0.3; transform: translateY(0); }
+    50% { opacity:1; transform: translateY(4px); }
+  }
+  .caret-anim { animation: caretPulse 2s ease-in-out infinite; }
+</style>
+</head>
+<body class="antialiased">
+
+<!-- ═══════════════════════════════════════ NAV ═══════════════════════════════════════ -->
+<nav class="fixed top-0 left-0 right-0 z-50 flex items-center justify-between px-12 h-16"
+     style="background:rgba(11,19,38,0.88); backdrop-filter:blur(20px); border-bottom:1px solid #2d3449;">
+  <a href="#home" class="font-label font-700 text-sm tracking-widest text-primary">SD.dev</a>
+
+  <ul class="hidden md:flex items-center gap-9 list-none">
+    <li><a href="#home"        class="nav-link font-label text-xs tracking-widest uppercase text-on-surface-variant hover:text-on-surface transition-colors duration-200 relative group">
+      Home
+      <span class="absolute -bottom-1 left-0 right-0 h-px bg-primary scale-x-0 group-hover:scale-x-100 transition-transform origin-left duration-200"></span>
+    </a></li>
+    <li><a href="#about"       class="nav-link font-label text-xs tracking-widest uppercase text-on-surface-variant hover:text-on-surface transition-colors duration-200 relative group">
+      About
+      <span class="absolute -bottom-1 left-0 right-0 h-px bg-primary scale-x-0 group-hover:scale-x-100 transition-transform origin-left duration-200"></span>
+    </a></li>
+    <li><a href="#stack"       class="nav-link font-label text-xs tracking-widest uppercase text-on-surface-variant hover:text-on-surface transition-colors duration-200 relative group">
+      Tech Stack
+      <span class="absolute -bottom-1 left-0 right-0 h-px bg-primary scale-x-0 group-hover:scale-x-100 transition-transform origin-left duration-200"></span>
+    </a></li>
+    <li><a href="#experience"  class="nav-link font-label text-xs tracking-widest uppercase text-on-surface-variant hover:text-on-surface transition-colors duration-200 relative group">
+      Experience
+      <span class="absolute -bottom-1 left-0 right-0 h-px bg-primary scale-x-0 group-hover:scale-x-100 transition-transform origin-left duration-200"></span>
+    </a></li>
+    <li><a href="#projects"    class="nav-link font-label text-xs tracking-widest uppercase text-on-surface-variant hover:text-on-surface transition-colors duration-200 relative group">
+      Projects
+      <span class="absolute -bottom-1 left-0 right-0 h-px bg-primary scale-x-0 group-hover:scale-x-100 transition-transform origin-left duration-200"></span>
+    </a></li>
+    <li><a href="#contact"     class="nav-link font-label text-xs tracking-widest uppercase text-on-surface-variant hover:text-on-surface transition-colors duration-200 relative group">
+      Contact
+      <span class="absolute -bottom-1 left-0 right-0 h-px bg-primary scale-x-0 group-hover:scale-x-100 transition-transform origin-left duration-200"></span>
+    </a></li>
+  </ul>
+
+  <a href="mailto:supratikdas01@gmail.com"
+     class="font-label text-xs tracking-widest uppercase px-5 py-2.5 rounded transition-all duration-200"
+     style="background:linear-gradient(135deg,#7bd0ff,#4edea3); color:#00354a; font-weight:700;">
+    Get in touch
+  </a>
+</nav>
+
+<!-- ═══════════════════════════════════════ HERO ═══════════════════════════════════════ -->
+<section id="home" class="relative min-h-screen flex flex-col justify-center overflow-hidden"
+         style="padding: 120px 80px 80px;">
+  <div class="grid-bg absolute inset-0 pointer-events-none"></div>
+  <div class="orb-primary absolute pointer-events-none" style="width:520px;height:520px;top:-80px;right:-80px;border-radius:50%;filter:blur(100px);"></div>
+  <div class="orb-tertiary absolute pointer-events-none" style="width:360px;height:360px;bottom:60px;left:-60px;border-radius:50%;filter:blur(100px);"></div>
+
+  <!-- label -->
+  <div class="flex items-center gap-3 mb-8 fade-up show">
+    <span class="w-8 h-px" style="background:#4edea3;"></span>
+    <span class="font-label text-xs tracking-[0.22em] uppercase" style="color:#4edea3;">Available for opportunities</span>
+  </div>
+
+  <!-- name -->
+  <h1 class="font-headline font-extrabold leading-none tracking-tight mb-4 fade-up show"
+      style="font-size:clamp(60px,9vw,116px); letter-spacing:-0.03em;">
+    <span class="block" style="color:#dae2fd;">Supratik</span>
+    <span class="block" style="background:linear-gradient(135deg, #7bd0ff 0%, #4edea3 100%); -webkit-background-clip:text; -webkit-text-fill-color:transparent; background-clip:text;">Das.</span>
+  </h1>
+
+  <!-- subtitle -->
+  <p class="font-label text-sm tracking-[0.18em] uppercase mb-10 fade-up show delay-1" style="color:#909097;">
+    Analyst - SD &nbsp;/&nbsp; Hyderabad, India
+  </p>
+
+  <!-- desc -->
+  <p class="text-base leading-relaxed mb-12 max-w-lg fade-up show delay-2" style="color:#c6c6cd; font-family:'Inter',sans-serif;">
+    7+ years crafting scalable web applications with deep expertise in frontend architecture,
+    JavaScript ecosystems, and high-traffic e-commerce platforms.
+  </p>
+
+  <!-- CTAs -->
+  <div class="flex gap-4 items-center flex-wrap fade-up show delay-3">
+    <a href="#projects"
+       class="font-label text-xs tracking-widest uppercase px-7 py-3.5 rounded transition-all duration-200 hover:shadow-lg"
+       style="background:linear-gradient(135deg,#7bd0ff,#4edea3); color:#00354a; font-weight:700; box-shadow:0 0 0 rgba(123,208,255,0);"
+       onmouseover="this.style.boxShadow='0 0 32px rgba(123,208,255,0.35)'"
+       onmouseout="this.style.boxShadow='0 0 0 rgba(123,208,255,0)'">
+      View Work
+    </a>
+    <a href="#contact"
+       class="font-label text-xs tracking-widest uppercase px-7 py-3.5 rounded border transition-all duration-200 hover:border-primary hover:text-primary"
+       style="border-color:#2d3449; color:#909097;">
+      Say Hello
+    </a>
+    <a href="Supratik_Das_CV_2026.pdf" download target="_blank"
+       class="font-label text-xs tracking-widest uppercase px-7 py-3.5 rounded border flex items-center gap-2 transition-all duration-200"
+       style="border-color:#2d3449; color:#909097;"
+       onmouseover="this.style.borderColor='#4edea3';this.style.color='#4edea3';"
+       onmouseout="this.style.borderColor='#2d3449';this.style.color='#909097';">
+      ↓ Download CV
+    </a>
+  </div>
+
+  <!-- right stats -->
+  <div class="absolute right-20 top-1/2 -translate-y-1/2 flex-col gap-10 hidden xl:flex">
+    <div class="text-right">
+      <div class="font-headline font-extrabold" style="font-size:48px; color:#7bd0ff; line-height:1;">7+</div>
+      <div class="font-label text-xs tracking-widest uppercase mt-1" style="color:#909097;">Years Exp.</div>
+    </div>
+    <div class="text-right">
+      <div class="font-headline font-extrabold" style="font-size:48px; color:#4edea3; line-height:1;">3</div>
+      <div class="font-label text-xs tracking-widest uppercase mt-1" style="color:#909097;">Companies</div>
+    </div>
+    <div class="text-right">
+      <div class="font-headline font-extrabold" style="font-size:48px; color:#bcc7de; line-height:1;">∞</div>
+      <div class="font-label text-xs tracking-widest uppercase mt-1" style="color:#909097;">Coffee</div>
+    </div>
+  </div>
+
+  <!-- scroll indicator -->
+  <div class="absolute bottom-10 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2">
+    <div class="w-px h-10 caret-anim" style="background:linear-gradient(to bottom, #4edea3, transparent);"></div>
+    <span class="font-label text-xs tracking-widest uppercase" style="color:#45464d;">Scroll</span>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════ ABOUT ═══════════════════════════════════════ -->
+<section id="about" style="padding:120px 80px; background:#0f1726; border-top:1px solid #2d3449; border-bottom:1px solid #2d3449;">
+  <div class="flex items-center gap-3 mb-5 fade-up">
+    <span class="font-label text-xs tracking-[0.22em] uppercase" style="color:#4edea3;">01 — Profile</span>
+    <span class="w-10 h-px opacity-40" style="background:#4edea3;"></span>
+  </div>
+
+  <div class="grid grid-cols-1 lg:grid-cols-2 gap-20 mt-4">
+    <!-- left -->
+    <div class="fade-up">
+      <h2 class="font-headline font-extrabold leading-none tracking-tight mb-8"
+          style="font-size:clamp(38px,5vw,62px); letter-spacing:-0.02em; color:#dae2fd;">
+        Who I<br>Am<span style="color:#4edea3;">?</span>
+      </h2>
+      <p class="text-sm leading-relaxed mb-4" style="color:#c6c6cd;">
+        I'm Supratik, a Software Analyst with 7+ years designing and delivering scalable web applications.
+        My journey spans the full product lifecycle — architecting frontend systems to integrating complex backend APIs.
+      </p>
+      <p class="text-sm leading-relaxed mb-4" style="color:#c6c6cd;">
+        Currently at Valuelabs (Client: Shutterfly Inc.), I lead development of high-traffic product
+        customisation features used by millions. I believe great software lives at the intersection of
+        engineering precision and deep user empathy.
+      </p>
+      <p class="text-sm leading-relaxed mb-8" style="color:#c6c6cd;">
+        I thrive in large codebases, love mentoring junior developers, and actively leverage
+        AI-assisted engineering workflows to ship high-quality software faster.
+      </p>
+      <div class="flex flex-wrap gap-2">
+        <span class="font-label text-xs tracking-wide uppercase px-3 py-1.5 rounded border transition-colors duration-200 cursor-default hover:border-primary hover:text-primary" style="border-color:#45464d; color:#909097; background:#131b2e;">Frontend Architecture</span>
+        <span class="font-label text-xs tracking-wide uppercase px-3 py-1.5 rounded border transition-colors duration-200 cursor-default hover:border-primary hover:text-primary" style="border-color:#45464d; color:#909097; background:#131b2e;">E-commerce</span>
+        <span class="font-label text-xs tracking-wide uppercase px-3 py-1.5 rounded border transition-colors duration-200 cursor-default hover:border-primary hover:text-primary" style="border-color:#45464d; color:#909097; background:#131b2e;">System Design</span>
+        <span class="font-label text-xs tracking-wide uppercase px-3 py-1.5 rounded border transition-colors duration-200 cursor-default hover:border-primary hover:text-primary" style="border-color:#45464d; color:#909097; background:#131b2e;">Code Reviews</span>
+        <span class="font-label text-xs tracking-wide uppercase px-3 py-1.5 rounded border transition-colors duration-200 cursor-default hover:border-primary hover:text-primary" style="border-color:#45464d; color:#909097; background:#131b2e;">AI Workflows</span>
+        <span class="font-label text-xs tracking-wide uppercase px-3 py-1.5 rounded border transition-colors duration-200 cursor-default hover:border-primary hover:text-primary" style="border-color:#45464d; color:#909097; background:#131b2e;">Mentoring</span>
+        <span class="font-label text-xs tracking-wide uppercase px-3 py-1.5 rounded border transition-colors duration-200 cursor-default hover:border-primary hover:text-primary" style="border-color:#45464d; color:#909097; background:#131b2e;">Performance</span>
+        <span class="font-label text-xs tracking-wide uppercase px-3 py-1.5 rounded border transition-colors duration-200 cursor-default hover:border-primary hover:text-primary" style="border-color:#45464d; color:#909097; background:#131b2e;">Agile</span>
+      </div>
+    </div>
+
+    <!-- right: info cards -->
+    <div class="flex flex-col gap-4 fade-up delay-2">
+      <div class="info-card rounded-lg p-6 border transition-all duration-250 group"
+           style="background:#131b2e; border-color:#2d3449;">
+        <div class="font-label text-xs tracking-widest uppercase mb-1" style="color:#7bd0ff;">Current Role</div>
+        <div class="font-headline font-bold text-lg" style="color:#dae2fd;">Analyst - SD</div>
+        <div class="text-xs mt-1" style="color:#909097;">Valuelabs · Client: Shutterfly Inc. · Oct 2023 – Present</div>
+      </div>
+      <div class="info-card rounded-lg p-6 border transition-all duration-250"
+           style="background:#131b2e; border-color:#2d3449;">
+        <div class="font-label text-xs tracking-widest uppercase mb-1" style="color:#7bd0ff;">Education</div>
+        <div class="font-headline font-bold text-lg" style="color:#dae2fd;">M.Sc. Computer Science</div>
+        <div class="text-xs mt-1" style="color:#909097;">West Bengal State University · 2017 &nbsp;·&nbsp; B.Sc. 2015</div>
+      </div>
+      <div class="info-card rounded-lg p-6 border transition-all duration-250"
+           style="background:#131b2e; border-color:#2d3449;">
+        <div class="font-label text-xs tracking-widest uppercase mb-1" style="color:#7bd0ff;">Location</div>
+        <div class="font-headline font-bold text-lg" style="color:#dae2fd;">Hyderabad, India</div>
+        <div class="text-xs mt-1" style="color:#909097;">Open to remote opportunities globally</div>
+      </div>
+      <div class="info-card rounded-lg p-6 border transition-all duration-250"
+           style="background:#131b2e; border-color:#2d3449;">
+        <div class="font-label text-xs tracking-widest uppercase mb-1" style="color:#7bd0ff;">Contact</div>
+        <div class="font-headline font-bold text-lg" style="color:#dae2fd;">supratikdas01@gmail.com</div>
+        <div class="text-xs mt-1" style="color:#909097;">+91 8100434836</div>
+      </div>
+      <div class="info-card rounded-lg p-6 border transition-all duration-250"
+           style="background:#131b2e; border-color:#2d3449;">
+        <div class="font-label text-xs tracking-widest uppercase mb-1" style="color:#7bd0ff;">Certification</div>
+        <div class="font-headline font-bold text-lg" style="color:#dae2fd;">Angular Advanced Workshop</div>
+        <div class="text-xs mt-1" style="color:#909097;">Udemy · 2022</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════ TECH STACK ═══════════════════════════════════════ -->
+<section id="stack" style="padding:120px 80px; background:#0b1326;">
+  <!-- header -->
+  <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 mb-20">
+    <div class="fade-up">
+      <div class="flex items-center gap-3 mb-5">
+        <span class="font-label text-xs tracking-[0.22em] uppercase" style="color:#4edea3;">02 — Architectural Overview</span>
+        <span class="w-10 h-px opacity-40" style="background:#4edea3;"></span>
+      </div>
+      <h2 class="font-headline font-extrabold leading-none tracking-tight"
+          style="font-size:clamp(38px,5vw,64px); letter-spacing:-0.02em; color:#dae2fd;">
+        Engineering<br>Ecosystem<span style="color:#4edea3;">.</span>
+      </h2>
+    </div>
+    <p class="text-sm leading-loose self-center fade-up delay-1" style="color:#c6c6cd;">
+      A curated selection of technologies and methodologies refined through 7+ years of building
+      high-traffic consumer platforms and immersive frontend interfaces.
+    </p>
+  </div>
+
+  <!-- ── FRONTEND ── -->
+  <div class="mb-20 fade-up">
+    <div class="grid grid-cols-1 lg:grid-cols-5 gap-12 items-start">
+      <!-- left info -->
+      <div class="lg:col-span-2">
+        <div class="inline-flex items-center gap-2 px-3 py-1.5 rounded border mb-5"
+             style="background:#131b2e; border-color:#2d3449;">
+          <span class="w-2 h-2 rounded-full" style="background:#4edea3;"></span>
+          <span class="font-label text-xs tracking-widest uppercase" style="color:#c6c6cd;">Surface Layer</span>
+        </div>
+        <h3 class="font-headline font-extrabold mb-3" style="font-size:26px; color:#dae2fd;">Frontend Engineering</h3>
+        <p class="text-sm leading-relaxed mb-6" style="color:#909097;">
+          Crafting pixel-perfect, accessible, and performant interfaces that bridge human intent with technical execution.
+        </p>
+        <!-- mastery bars -->
+        <div class="border-l-2 pl-4" style="border-color:#4edea3;">
+          <div class="font-label text-xs tracking-widest uppercase mb-3" style="color:#909097;">Core Expertise</div>
+          <div class="flex justify-between items-baseline mb-1">
+            <span class="font-headline font-bold text-sm" style="color:#dae2fd;">Angular &amp; Backbone.js</span>
+            <span class="font-label text-xs" style="color:#4edea3;">94%</span>
+          </div>
+          <div class="h-px mb-4 rounded" style="background:#2d3449; overflow:hidden;">
+            <div class="bar-fill h-full rounded" data-w="94%" style="width:0; background:linear-gradient(90deg,#4edea3,#7bd0ff);"></div>
+          </div>
+          <div class="flex justify-between items-baseline mb-1">
+            <span class="font-headline font-bold text-sm" style="color:#dae2fd;">JavaScript ES6+</span>
+            <span class="font-label text-xs" style="color:#4edea3;">96%</span>
+          </div>
+          <div class="h-px rounded" style="background:#2d3449; overflow:hidden;">
+            <div class="bar-fill h-full rounded" data-w="96%" style="width:0; background:linear-gradient(90deg,#4edea3,#7bd0ff);"></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- skill cards -->
+      <div class="lg:col-span-3 grid grid-cols-3 gap-3">
+        <!-- card helper macro inlined -->
+        <div class="skill-card rounded-lg p-5 border cursor-default transition-all duration-200 hover:-translate-y-0.5" style="background:#131b2e; border-color:#2d3449;">
+          <div class="flex justify-between items-start mb-4">
+            <span class="text-xl">🔷</span>
+            <span class="font-label text-xs px-2 py-0.5 rounded" style="background:rgba(78,222,163,0.12);color:#4edea3;">Expert</span>
+          </div>
+          <div class="font-headline font-bold text-sm mb-1" style="color:#dae2fd;">Angular</div>
+          <div class="text-xs" style="color:#909097;">Enterprise SPA framework</div>
+        </div>
+        <div class="skill-card rounded-lg p-5 border cursor-default transition-all duration-200 hover:-translate-y-0.5" style="background:#131b2e; border-color:#2d3449;">
+          <div class="flex justify-between items-start mb-4">
+            <span class="text-xl">🟡</span>
+            <span class="font-label text-xs px-2 py-0.5 rounded" style="background:rgba(78,222,163,0.12);color:#4edea3;">Expert</span>
+          </div>
+          <div class="font-headline font-bold text-sm mb-1" style="color:#dae2fd;">JavaScript</div>
+          <div class="text-xs" style="color:#909097;">ES6+ · Async · DOM</div>
+        </div>
+        <div class="skill-card rounded-lg p-5 border cursor-default transition-all duration-200 hover:-translate-y-0.5" style="background:#131b2e; border-color:#2d3449;">
+          <div class="flex justify-between items-start mb-4">
+            <span class="text-xl">🎨</span>
+            <span class="font-label text-xs px-2 py-0.5 rounded" style="background:rgba(123,208,255,0.12);color:#7bd0ff;">Pro</span>
+          </div>
+          <div class="font-headline font-bold text-sm mb-1" style="color:#dae2fd;">HTML5 / CSS3</div>
+          <div class="text-xs" style="color:#909097;">Semantic · Responsive</div>
+        </div>
+        <div class="skill-card rounded-lg p-5 border cursor-default transition-all duration-200 hover:-translate-y-0.5" style="background:#131b2e; border-color:#2d3449;">
+          <div class="flex justify-between items-start mb-4">
+            <span class="text-xl">🔗</span>
+            <span class="font-label text-xs px-2 py-0.5 rounded" style="background:rgba(188,199,222,0.12);color:#bcc7de;">Advanced</span>
+          </div>
+          <div class="font-headline font-bold text-sm mb-1" style="color:#dae2fd;">Backbone.js</div>
+          <div class="text-xs" style="color:#909097;">MVC · Shutterfly Builder</div>
+        </div>
+        <div class="skill-card rounded-lg p-5 border cursor-default transition-all duration-200 hover:-translate-y-0.5" style="background:#131b2e; border-color:#2d3449;">
+          <div class="flex justify-between items-start mb-4">
+            <span class="text-xl">⚛️</span>
+            <span class="font-label text-xs px-2 py-0.5 rounded" style="background:rgba(255,209,102,0.1);color:#ffd166;">Learning</span>
+          </div>
+          <div class="font-headline font-bold text-sm mb-1" style="color:#dae2fd;">React</div>
+          <div class="text-xs" style="color:#909097;">Modern component model</div>
+        </div>
+        <div class="skill-card rounded-lg p-5 border cursor-default transition-all duration-200 hover:-translate-y-0.5" style="background:#131b2e; border-color:#2d3449;">
+          <div class="flex justify-between items-start mb-4">
+            <span class="text-xl">📊</span>
+            <span class="font-label text-xs px-2 py-0.5 rounded" style="background:rgba(123,208,255,0.12);color:#7bd0ff;">Pro</span>
+          </div>
+          <div class="font-headline font-bold text-sm mb-1" style="color:#dae2fd;">GTM / GA</div>
+          <div class="text-xs" style="color:#909097;">Analytics &amp; tracking</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ── BACKEND ── -->
+  <div class="grid grid-cols-1 lg:grid-cols-3 gap-5 mb-20 fade-up">
+    <div class="rounded-lg p-7 border relative overflow-hidden transition-all duration-200 hover:border-opacity-60 group"
+         style="background:#131b2e; border-color:#2d3449;">
+      <div class="text-3xl mb-3">🟩</div>
+      <div class="font-headline font-extrabold text-lg mb-1" style="color:#dae2fd;">Node.js</div>
+      <div class="font-label text-xs tracking-widest uppercase mb-4" style="color:#4edea3;">Runtime Environment</div>
+      <p class="text-xs leading-relaxed mb-5" style="color:#909097;">
+        Proficient in building event-driven REST APIs and server-side logic with high throughput and low latency.
+      </p>
+      <div class="flex flex-wrap gap-1.5">
+        <span class="font-label text-xs px-2 py-1 rounded" style="background:#1a2035; border:1px solid #2d3449; color:#909097;">Express</span>
+        <span class="font-label text-xs px-2 py-1 rounded" style="background:#1a2035; border:1px solid #2d3449; color:#909097;">REST APIs</span>
+        <span class="font-label text-xs px-2 py-1 rounded" style="background:#1a2035; border:1px solid #2d3449; color:#909097;">Serverless</span>
+      </div>
+    </div>
+
+    <div class="rounded-lg p-7 border relative overflow-hidden transition-all duration-200 hover:border-opacity-60"
+         style="background:#131b2e; border-color:#2d3449;">
+      <div class="text-3xl mb-3">🐘</div>
+      <div class="font-headline font-extrabold text-lg mb-1" style="color:#dae2fd;">PostgreSQL / MongoDB</div>
+      <div class="font-label text-xs tracking-widest uppercase mb-4" style="color:#4edea3;">Persistence Layers</div>
+      <p class="text-xs leading-relaxed mb-5" style="color:#909097;">
+        Expert in schema design, query optimisation, and working with both relational and document stores.
+      </p>
+      <div class="flex flex-wrap gap-1.5">
+        <span class="font-label text-xs px-2 py-1 rounded" style="background:#1a2035; border:1px solid #2d3449; color:#909097;">SQL</span>
+        <span class="font-label text-xs px-2 py-1 rounded" style="background:#1a2035; border:1px solid #2d3449; color:#909097;">Mongoose</span>
+        <span class="font-label text-xs px-2 py-1 rounded" style="background:#1a2035; border:1px solid #2d3449; color:#909097;">Migrations</span>
+      </div>
+    </div>
+
+    <!-- backend mastery card -->
+    <div class="rounded-lg p-7 border" style="background:#131b2e; border-color:#2d3449;">
+      <div class="inline-flex items-center gap-2 px-3 py-1.5 rounded border mb-5"
+           style="background:rgba(123,208,255,0.08); border-color:rgba(123,208,255,0.2);">
+        <span class="w-2 h-2 rounded-full" style="background:#7bd0ff;"></span>
+        <span class="font-label text-xs tracking-widest uppercase" style="color:#7bd0ff;">Deep Logic</span>
+      </div>
+      <h3 class="font-headline font-extrabold mb-3" style="font-size:20px; color:#dae2fd;">Backend &amp; API Design</h3>
+      <p class="text-xs leading-relaxed mb-6" style="color:#909097;">
+        Architecting robust, secure backends that serve as the dependable foundation for modern digital experiences.
+      </p>
+      <div class="border-l-2 pl-4" style="border-color:#7bd0ff;">
+        <div class="font-label text-xs tracking-widest uppercase mb-2" style="color:#909097;">Core Expertise</div>
+        <div class="flex justify-between items-baseline mb-1">
+          <span class="font-headline font-bold text-sm" style="color:#dae2fd;">System Design</span>
+          <span class="font-label text-xs" style="color:#7bd0ff;">88%</span>
+        </div>
+        <div class="h-px rounded" style="background:#2d3449; overflow:hidden;">
+          <div class="bar-fill h-full rounded" data-w="88%" style="width:0; background:linear-gradient(90deg,#7bd0ff,#4edea3);"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ── DEVOPS ── -->
+  <div class="fade-up">
+    <div class="flex justify-between items-start mb-10">
+      <div>
+        <div class="flex items-center gap-3 mb-3">
+          <span class="font-label text-xs tracking-[0.22em] uppercase" style="color:#4edea3;">DevOps &amp; Cloud</span>
+        </div>
+        <h3 class="font-headline font-extrabold" style="font-size:22px; color:#dae2fd;">Infrastructure &amp; Tooling</h3>
+        <p class="text-sm mt-2 max-w-md" style="color:#909097;">
+          Cloud services, CI/CD pipelines, and the delivery infrastructure that ships code to production reliably.
+        </p>
+      </div>
+      <div class="hidden md:flex gap-3">
+        <div class="w-11 h-11 rounded-lg border flex items-center justify-center text-xl cursor-default transition-all hover:scale-105" style="background:#131b2e; border-color:#2d3449;">☁️</div>
+        <div class="w-11 h-11 rounded-lg border flex items-center justify-center text-xl cursor-default transition-all hover:scale-105" style="background:#131b2e; border-color:#2d3449;">🐙</div>
+        <div class="w-11 h-11 rounded-lg border flex items-center justify-center text-xl cursor-default transition-all hover:scale-105" style="background:#131b2e; border-color:#2d3449;">⚙️</div>
+      </div>
+    </div>
+
+    <div class="grid grid-cols-3 md:grid-cols-6 border rounded-lg overflow-hidden" style="background:#2d3449; gap:1px;">
+      <div class="py-8 px-4 text-center transition-colors duration-200 cursor-default hover:bg-surface-container-high" style="background:#131b2e;">
+        <div class="text-2xl mb-3">🐙</div>
+        <div class="font-headline font-bold text-xs mb-1" style="color:#dae2fd;">Git / Bitbucket</div>
+        <div class="font-label text-xs tracking-wide uppercase" style="color:#909097;">Version Control</div>
+      </div>
+      <div class="py-8 px-4 text-center transition-colors duration-200 cursor-default" style="background:#131b2e;">
+        <div class="text-2xl mb-3">☁️</div>
+        <div class="font-headline font-bold text-xs mb-1" style="color:#dae2fd;">AWS Lambda</div>
+        <div class="font-label text-xs tracking-wide uppercase" style="color:#909097;">Cloud Functions</div>
+      </div>
+      <div class="py-8 px-4 text-center transition-colors duration-200 cursor-default" style="background:#131b2e;">
+        <div class="text-2xl mb-3">🔄</div>
+        <div class="font-headline font-bold text-xs mb-1" style="color:#dae2fd;">CI/CD</div>
+        <div class="font-label text-xs tracking-wide uppercase" style="color:#909097;">Pipeline Collab</div>
+      </div>
+      <div class="py-8 px-4 text-center transition-colors duration-200 cursor-default" style="background:#131b2e;">
+        <div class="text-2xl mb-3">🏃</div>
+        <div class="font-headline font-bold text-xs mb-1" style="color:#dae2fd;">Agile / Jira</div>
+        <div class="font-label text-xs tracking-wide uppercase" style="color:#909097;">Delivery</div>
+      </div>
+      <div class="py-8 px-4 text-center transition-colors duration-200 cursor-default" style="background:#131b2e;">
+        <div class="text-2xl mb-3">🔦</div>
+        <div class="font-headline font-bold text-xs mb-1" style="color:#dae2fd;">Lighthouse</div>
+        <div class="font-label text-xs tracking-wide uppercase" style="color:#909097;">Performance</div>
+      </div>
+      <div class="py-8 px-4 text-center transition-colors duration-200 cursor-default" style="background:#131b2e;">
+        <div class="text-2xl mb-3">🌐</div>
+        <div class="font-headline font-bold text-xs mb-1" style="color:#dae2fd;">Cross-Browser</div>
+        <div class="font-label text-xs tracking-wide uppercase" style="color:#909097;">Compatibility</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════ EXPERIENCE ═══════════════════════════════════════ -->
+<section id="experience" style="padding:120px 80px; background:#0f1726; border-top:1px solid #2d3449; border-bottom:1px solid #2d3449;">
+  <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 mb-16">
+    <div class="fade-up">
+      <div class="flex items-center gap-3 mb-5">
+        <span class="font-label text-xs tracking-[0.22em] uppercase" style="color:#4edea3;">03 — Career Timeline</span>
+        <span class="w-10 h-px opacity-40" style="background:#4edea3;"></span>
+      </div>
+      <h2 class="font-headline font-extrabold leading-none tracking-tight"
+          style="font-size:clamp(38px,5vw,62px); letter-spacing:-0.02em; color:#dae2fd;">
+        Work<br>Experience<span style="color:#4edea3;">.</span>
+      </h2>
+    </div>
+    <p class="text-sm leading-loose self-end fade-up delay-1" style="color:#909097;">
+      Seven years across product companies and enterprise clients — from fast-paced startups to
+      multi-million user consumer platforms.
+    </p>
+  </div>
+
+  <!-- timeline -->
+  <div class="relative pl-8" style="border-left: 1px solid #2d3449;">
+    <!-- item 1 -->
+    <div class="relative mb-14 fade-up">
+      <div class="absolute -left-10 top-1.5 w-3 h-3 rounded-full border-2" style="background:#4edea3; border-color:#0f1726; box-shadow:0 0 10px rgba(78,222,163,0.5);"></div>
+      <div class="flex items-center gap-3 mb-3">
+        <span class="font-label text-xs tracking-widest uppercase" style="color:#4edea3;">Valuelabs</span>
+        <span style="color:#45464d;">·</span>
+        <span class="font-label text-xs" style="color:#909097;">Oct 2023 – Present</span>
+      </div>
+      <h3 class="font-headline font-extrabold mb-1" style="font-size:22px; color:#dae2fd;">Analyst - SD</h3>
+      <p class="text-xs italic mb-5" style="color:#909097;">Client: Shutterfly Inc. — High-traffic Consumer E-commerce</p>
+      <ul class="flex flex-col gap-2">
+        <li class="text-sm leading-relaxed pl-4 relative" style="color:#c6c6cd;"><span class="absolute left-0 top-0" style="color:#4edea3;">›</span>Led frontend development of a large-scale photo product editor used by millions, built on Backbone.js + JavaScript across Photo Books, Cards, Calendars, Prints, Mugs, Canvas Prints, and Posters.</li>
+        <li class="text-sm leading-relaxed pl-4 relative" style="color:#c6c6cd;"><span class="absolute left-0 top-0" style="color:#4edea3;">›</span>Built a rich drag-and-drop canvas editor using Fabric.js supporting photo placement, text editing, design templates, backgrounds, and embellishments.</li>
+        <li class="text-sm leading-relaxed pl-4 relative" style="color:#c6c6cd;"><span class="absolute left-0 top-0" style="color:#4edea3;">›</span>Developed AI-powered frontend flows — autofill, auto-crop, layout suggestions, and restyle (Magic Labs).</li>
+        <li class="text-sm leading-relaxed pl-4 relative" style="color:#c6c6cd;"><span class="absolute left-0 top-0" style="color:#4edea3;">›</span>Built an embeddable widget mode with a JavaScript API for third-party host page integration.</li>
+        <li class="text-sm leading-relaxed pl-4 relative" style="color:#c6c6cd;"><span class="absolute left-0 top-0" style="color:#4edea3;">›</span>Conducted code reviews, contributed to architectural decisions, and collaborated with backend teams on API integration and system design.</li>
+      </ul>
+    </div>
+
+    <!-- item 2 -->
+    <div class="relative mb-14 fade-up delay-1">
+      <div class="absolute -left-10 top-1.5 w-3 h-3 rounded-full border-2" style="background:#2d3449; border-color:#45464d;"></div>
+      <div class="flex items-center gap-3 mb-3">
+        <span class="font-label text-xs tracking-widest uppercase" style="color:#7bd0ff;">HCLTech</span>
+        <span style="color:#45464d;">·</span>
+        <span class="font-label text-xs" style="color:#909097;">Jan 2022 – Sep 2023</span>
+      </div>
+      <h3 class="font-headline font-extrabold mb-1" style="font-size:22px; color:#dae2fd;">Senior Software Engineer</h3>
+      <p class="text-xs italic mb-5" style="color:#909097;">Enterprise Application Development</p>
+      <ul class="flex flex-col gap-2">
+        <li class="text-sm leading-relaxed pl-4 relative" style="color:#c6c6cd;"><span class="absolute left-0 top-0" style="color:#7bd0ff;">›</span>Developed enterprise-grade applications using Angular, JavaScript, and Node.js integrations.</li>
+        <li class="text-sm leading-relaxed pl-4 relative" style="color:#c6c6cd;"><span class="absolute left-0 top-0" style="color:#7bd0ff;">›</span>Built reusable, modular UI component libraries aligned with scalable frontend architecture standards.</li>
+        <li class="text-sm leading-relaxed pl-4 relative" style="color:#c6c6cd;"><span class="absolute left-0 top-0" style="color:#7bd0ff;">›</span>Implemented Google Tag Manager and Google Analytics for user journey and funnel tracking.</li>
+      </ul>
+    </div>
+
+    <!-- item 3 -->
+    <div class="relative fade-up delay-2">
+      <div class="absolute -left-10 top-1.5 w-3 h-3 rounded-full border-2" style="background:#2d3449; border-color:#45464d;"></div>
+      <div class="flex items-center gap-3 mb-3">
+        <span class="font-label text-xs tracking-widest uppercase" style="color:#bcc7de;">LegalKart</span>
+        <span style="color:#45464d;">·</span>
+        <span class="font-label text-xs" style="color:#909097;">Jan 2019 – Dec 2021</span>
+      </div>
+      <h3 class="font-headline font-extrabold mb-1" style="font-size:22px; color:#dae2fd;">Software Engineer</h3>
+      <p class="text-xs italic mb-5" style="color:#909097;">Legal-tech Startup — Full Stack</p>
+      <ul class="flex flex-col gap-2">
+        <li class="text-sm leading-relaxed pl-4 relative" style="color:#c6c6cd;"><span class="absolute left-0 top-0" style="color:#bcc7de;">›</span>Developed features using JavaScript, Angular, Node.js, PostgreSQL, and REST APIs in a fast-paced startup environment.</li>
+        <li class="text-sm leading-relaxed pl-4 relative" style="color:#c6c6cd;"><span class="absolute left-0 top-0" style="color:#bcc7de;">›</span>Built strong foundations in full-stack development, system integration, and Agile delivery across multiple production releases.</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════ PROJECTS ═══════════════════════════════════════ -->
+<section id="projects" style="padding:120px 80px; background:#0b1326;">
+  <div class="flex items-center gap-3 mb-5 fade-up">
+    <span class="font-label text-xs tracking-[0.22em] uppercase" style="color:#4edea3;">04 — Selected Work</span>
+    <span class="w-10 h-px opacity-40" style="background:#4edea3;"></span>
+  </div>
+  <h2 class="font-headline font-extrabold leading-none tracking-tight mb-14 fade-up"
+      style="font-size:clamp(38px,5vw,62px); letter-spacing:-0.02em; color:#dae2fd;">
+    Key Projects<span style="color:#4edea3;">.</span>
+  </h2>
+
+  <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
+    <!-- project 1 -->
+    <div class="relative rounded-xl p-9 border overflow-hidden transition-all duration-300 cursor-default hover:-translate-y-1 group fade-up"
+         style="background:#131b2e; border-color:#2d3449;">
+      <div class="absolute top-6 right-7 font-headline font-extrabold select-none transition-colors duration-300" style="font-size:64px; color:#1a2035; line-height:1;">01</div>
+      <div class="font-label text-xs tracking-widest uppercase mb-4" style="color:#4edea3;">E-commerce · Shutterfly</div>
+      <h3 class="font-headline font-extrabold mb-4 max-w-xs" style="font-size:24px; color:#dae2fd; line-height:1.15;">Photo Product Builder</h3>
+      <p class="text-sm leading-relaxed mb-6" style="color:#c6c6cd;">
+        Frontend of a high-traffic photo product editor enabling millions of users to design and order personalised photo products in real time. Backbone.js SPA with Fabric.js canvas editor, undo/redo Command Pattern, AI autofill/auto-crop flows, embeddable widget API, and multi-brand locale support across 7+ product types.
+      </p>
+      <div class="flex flex-wrap gap-1.5">
+        <span class="font-label text-xs px-2.5 py-1 rounded" style="background:#1a2035; border:1px solid #2d3449; color:#909097;">Backbone.js</span>
+        <span class="font-label text-xs px-2.5 py-1 rounded" style="background:#1a2035; border:1px solid #2d3449; color:#909097;">JavaScript</span>
+        <span class="font-label text-xs px-2.5 py-1 rounded" style="background:#1a2035; border:1px solid #2d3449; color:#909097;">Fabric.js</span>
+        <span class="font-label text-xs px-2.5 py-1 rounded" style="background:#1a2035; border:1px solid #2d3449; color:#909097;">JST/EJS</span>
+        <span class="font-label text-xs px-2.5 py-1 rounded" style="background:#1a2035; border:1px solid #2d3449; color:#909097;">jQuery</span>
+        <span class="font-label text-xs px-2.5 py-1 rounded" style="background:#1a2035; border:1px solid #2d3449; color:#909097;">SCSS</span>
+      </div>
+    </div>
+
+    <!-- project 2 -->
+    <div class="relative rounded-xl p-9 border overflow-hidden transition-all duration-300 cursor-default hover:-translate-y-1 group fade-up delay-1"
+         style="background:#131b2e; border-color:#2d3449;">
+      <div class="absolute top-6 right-7 font-headline font-extrabold select-none" style="font-size:64px; color:#1a2035; line-height:1;">02</div>
+      <div class="font-label text-xs tracking-widest uppercase mb-4" style="color:#7bd0ff;">Personal Project · Open Source</div>
+      <h3 class="font-headline font-extrabold mb-4 max-w-xs" style="font-size:24px; color:#dae2fd; line-height:1.15;">JS Execution Visualizer</h3>
+      <p class="text-sm leading-relaxed mb-6" style="color:#c6c6cd;">
+        An interactive tool that visualises JavaScript's runtime behaviour line-by-line — including call stack, event loop,
+        promises, async/await, and task queues. Leverages AI agents to reason over execution flows.
+      </p>
+      <div class="flex flex-wrap gap-1.5">
+        <span class="font-label text-xs px-2.5 py-1 rounded" style="background:#1a2035; border:1px solid #2d3449; color:#909097;">JavaScript</span>
+        <span class="font-label text-xs px-2.5 py-1 rounded" style="background:#1a2035; border:1px solid #2d3449; color:#909097;">Event Loop</span>
+        <span class="font-label text-xs px-2.5 py-1 rounded" style="background:#1a2035; border:1px solid #2d3449; color:#909097;">Async/Await</span>
+        <span class="font-label text-xs px-2.5 py-1 rounded" style="background:#1a2035; border:1px solid #2d3449; color:#909097;">AI Agents</span>
+        <span class="font-label text-xs px-2.5 py-1 rounded" style="background:#1a2035; border:1px solid #2d3449; color:#909097;">Visualisation</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════ PRODUCTIVITY ═══════════════════════════════════════ -->
+<section style="padding:80px 80px; background:#0f1726; border-top:1px solid #2d3449;">
+  <div class="flex items-center gap-3 mb-4 fade-up">
+    <span class="font-label text-xs tracking-[0.22em] uppercase" style="color:#4edea3;">05 — Daily Tooling</span>
+    <span class="w-10 h-px opacity-40" style="background:#4edea3;"></span>
+  </div>
+  <h2 class="font-headline font-extrabold mb-10 fade-up" style="font-size:clamp(30px,4vw,48px); letter-spacing:-0.02em; color:#dae2fd;">
+    Productivity Stack<span style="color:#4edea3;">.</span>
+  </h2>
+  <div class="grid grid-cols-3 md:grid-cols-6 border rounded-lg overflow-hidden fade-up" style="background:#2d3449; gap:1px;">
+    <div class="py-7 px-4 text-center cursor-default transition-colors duration-200 hover:bg-surface-container-high" style="background:#131b2e;">
+      <div class="text-2xl mb-3">💻</div>
+      <div class="font-label text-xs tracking-wide uppercase" style="color:#c6c6cd;">VS Code</div>
+    </div>
+    <div class="py-7 px-4 text-center cursor-default" style="background:#131b2e;">
+      <div class="text-2xl mb-3">🐙</div>
+      <div class="font-label text-xs tracking-wide uppercase" style="color:#c6c6cd;">Git / Bitbucket</div>
+    </div>
+    <div class="py-7 px-4 text-center cursor-default" style="background:#131b2e;">
+      <div class="text-2xl mb-3">📋</div>
+      <div class="font-label text-xs tracking-wide uppercase" style="color:#c6c6cd;">Jira / Agile</div>
+    </div>
+    <div class="py-7 px-4 text-center cursor-default" style="background:#131b2e;">
+      <div class="text-2xl mb-3">📊</div>
+      <div class="font-label text-xs tracking-wide uppercase" style="color:#c6c6cd;">GTM / Analytics</div>
+    </div>
+    <div class="py-7 px-4 text-center cursor-default" style="background:#131b2e;">
+      <div class="text-2xl mb-3">🤖</div>
+      <div class="font-label text-xs tracking-wide uppercase" style="color:#c6c6cd;">AI Agents</div>
+    </div>
+    <div class="py-7 px-4 text-center cursor-default" style="background:#131b2e;">
+      <div class="text-2xl mb-3">🔦</div>
+      <div class="font-label text-xs tracking-wide uppercase" style="color:#c6c6cd;">Lighthouse</div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════ CONTACT ═══════════════════════════════════════ -->
+<section id="contact" style="padding:120px 80px 80px; background:#0b1326; border-top:1px solid #2d3449; text-align:center;">
+  <div class="max-w-2xl mx-auto">
+    <div class="flex items-center justify-center gap-3 mb-6 fade-up">
+      <span class="font-label text-xs tracking-[0.22em] uppercase" style="color:#4edea3;">06 — Let's Connect</span>
+    </div>
+    <h2 class="font-headline font-extrabold leading-none tracking-tight mb-6 fade-up"
+        style="font-size:clamp(44px,7vw,80px); letter-spacing:-0.03em; color:#dae2fd;">
+      Let's Build<br>Something<br><span style="background:linear-gradient(135deg,#7bd0ff,#4edea3);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;">Great.</span>
+    </h2>
+    <p class="text-sm leading-loose mb-12 fade-up delay-1 max-w-md mx-auto" style="color:#909097;">
+      Open to new opportunities, freelance projects, and interesting conversations.
+      Whether you have a role in mind or just want to talk tech — reach out.
+    </p>
+    <div class="mb-6 fade-up delay-1">
+      <a href="Supratik_Das_CV_2026.pdf" download target="_blank"
+         class="inline-flex items-center gap-3 font-label text-xs tracking-widest uppercase px-8 py-4 rounded-lg transition-all duration-200"
+         style="background:linear-gradient(135deg,rgba(123,208,255,0.1),rgba(78,222,163,0.1)); border:1px solid rgba(78,222,163,0.3); color:#4edea3;"
+         onmouseover="this.style.background='linear-gradient(135deg,rgba(123,208,255,0.18),rgba(78,222,163,0.18))';this.style.boxShadow='0 0 24px rgba(78,222,163,0.15)';"
+         onmouseout="this.style.background='linear-gradient(135deg,rgba(123,208,255,0.1),rgba(78,222,163,0.1))';this.style.boxShadow='none';">
+        <span style="font-size:16px;">↓</span> Download CV &nbsp;<span style="color:#45464d;">·</span>&nbsp; <span style="color:#909097;">PDF · 84 KB</span>
+      </a>
+    </div>
+    <div class="flex justify-center gap-4 flex-wrap fade-up delay-2">
+      <a href="mailto:supratikdas01@gmail.com"
+         class="font-label text-xs tracking-widest uppercase px-6 py-3 rounded border flex items-center gap-2 transition-all duration-200"
+         style="background:#131b2e; border-color:#2d3449; color:#c6c6cd;"
+         onmouseover="this.style.borderColor='#4edea3';this.style.color='#4edea3';"
+         onmouseout="this.style.borderColor='#2d3449';this.style.color='#c6c6cd';">
+        ✉ Email
+      </a>
+      <a href="https://linkedin.com/in/supratik-das-721138201" target="_blank"
+         class="font-label text-xs tracking-widest uppercase px-6 py-3 rounded border flex items-center gap-2 transition-all duration-200"
+         style="background:#131b2e; border-color:#2d3449; color:#c6c6cd;"
+         onmouseover="this.style.borderColor='#7bd0ff';this.style.color='#7bd0ff';"
+         onmouseout="this.style.borderColor='#2d3449';this.style.color='#c6c6cd';">
+        in LinkedIn
+      </a>
+      <a href="https://github.com/supratik01" target="_blank"
+         class="font-label text-xs tracking-widest uppercase px-6 py-3 rounded border flex items-center gap-2 transition-all duration-200"
+         style="background:#131b2e; border-color:#2d3449; color:#c6c6cd;"
+         onmouseover="this.style.borderColor='#bcc7de';this.style.color='#bcc7de';"
+         onmouseout="this.style.borderColor='#2d3449';this.style.color='#c6c6cd';">
+        ⌥ GitHub
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════ FOOTER ═══════════════════════════════════════ -->
+<footer class="flex items-center justify-between px-20 py-7" style="background:#060e20; border-top:1px solid #2d3449;">
+  <span class="font-label text-xs tracking-widest" style="color:#909097;">Supratik Das</span>
+  <span class="font-label text-xs tracking-wide" style="color:#45464d;">© 2026 · Engineered with precision.</span>
+  <div class="flex gap-6">
+    <a href="https://github.com/supratik01" target="_blank" class="font-label text-xs tracking-widest uppercase transition-colors duration-200" style="color:#909097;" onmouseover="this.style.color='#4edea3'" onmouseout="this.style.color='#909097'">GitHub</a>
+    <a href="https://linkedin.com/in/supratik-das-721138201" target="_blank" class="font-label text-xs tracking-widest uppercase transition-colors duration-200" style="color:#909097;" onmouseover="this.style.color='#7bd0ff'" onmouseout="this.style.color='#909097'">LinkedIn</a>
+    <a href="mailto:supratikdas01@gmail.com" class="font-label text-xs tracking-widest uppercase transition-colors duration-200" style="color:#909097;" onmouseover="this.style.color='#4edea3'" onmouseout="this.style.color='#909097'">Email</a>
+  </div>
+</footer>
+
+<script>
+  // ── INTERSECTION OBSERVER: fade-up ──
+  const io = new IntersectionObserver(entries => {
+    entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('show'); });
+  }, { threshold: 0.1 });
+  document.querySelectorAll('.fade-up').forEach(el => io.observe(el));
+
+  // ── BAR ANIMATIONS ──
+  const barIo = new IntersectionObserver(entries => {
+    entries.forEach(e => {
+      if (e.isIntersecting) {
+        e.target.querySelectorAll('.bar-fill').forEach(bar => {
+          bar.style.width = bar.dataset.w;
+        });
+      }
+    });
+  }, { threshold: 0.3 });
+  document.querySelectorAll('section').forEach(s => barIo.observe(s));
+
+  // ── ACTIVE NAV ──
+  const sections = document.querySelectorAll('section[id]');
+  const navLinks = document.querySelectorAll('.nav-link');
+  const navIo = new IntersectionObserver(entries => {
+    entries.forEach(e => {
+      if (e.isIntersecting) {
+        navLinks.forEach(a => { a.style.color = ''; a.classList.remove('active'); });
+        const active = document.querySelector(`.nav-link[href="#${e.target.id}"]`);
+        if (active) { active.style.color = '#7bd0ff'; active.classList.add('active'); }
+      }
+    });
+  }, { threshold: 0.45 });
+  sections.forEach(s => navIo.observe(s));
+
+  // ── INFO CARD HOVER TOP BORDER ──
+  document.querySelectorAll('.info-card').forEach(card => {
+    card.style.position = 'relative';
+    card.style.overflow = 'hidden';
+    const bar = document.createElement('div');
+    bar.style.cssText = 'position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,#7bd0ff,#4edea3);transform:scaleX(0);transform-origin:left;transition:transform 0.35s;';
+    card.appendChild(bar);
+    card.addEventListener('mouseenter', () => { bar.style.transform = 'scaleX(1)'; card.style.borderColor = 'rgba(123,208,255,0.3)'; });
+    card.addEventListener('mouseleave', () => { bar.style.transform = 'scaleX(0)'; card.style.borderColor = '#2d3449'; });
+  });
+
+  // ── SKILL CARD HOVER ──
+  document.querySelectorAll('.skill-card').forEach(card => {
+    card.addEventListener('mouseenter', () => { card.style.borderColor = 'rgba(78,222,163,0.3)'; card.style.background = '#171f33'; });
+    card.addEventListener('mouseleave', () => { card.style.borderColor = '#2d3449'; card.style.background = '#131b2e'; });
+  });
+
+  // ── SMOOTH SCROLL ──
+  document.querySelectorAll('a[href^="#"]').forEach(a => {
+    a.addEventListener('click', e => {
+      const target = document.querySelector(a.getAttribute('href'));
+      if (target) { e.preventDefault(); target.scrollIntoView({ behavior: 'smooth' }); }
+    });
+  });
+</script>
+</body>
+</html>
