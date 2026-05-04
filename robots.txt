@@ -2,4 +2,4 @@ User-agent: *
 Allow: /
 Disallow: /initial-copy.html
 
-Sitemap: https://supratik-das.vercel.app/sitemap.xml
+Sitemap: https://bytefront.dev/sitemap.xml
