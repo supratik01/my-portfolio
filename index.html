@@ -3,7 +3,106 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>Supratik Das — Analyst - SD</title>
+
+<!-- ── Primary SEO ── -->
+<title>Supratik Das | Frontend Developer | JavaScript, Angular & Backbone.js | Hyderabad</title>
+<meta name="description" content="Supratik Das is a Software Development Analyst with 7+ years building scalable web applications. Expert in JavaScript ES6+, Angular, Backbone.js, Fabric.js, and AI-powered frontend engineering. Based in Hyderabad, India." />
+<meta name="keywords" content="Supratik Das, frontend developer, JavaScript developer, Angular developer, Backbone.js developer, React developer, software engineer, Hyderabad, India, Fabric.js, canvas editor, Node.js, web developer, UI engineer, photo product builder, Shutterfly developer, frontend architect, full stack developer" />
+<meta name="author" content="Supratik Das" />
+<meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1" />
+<meta name="theme-color" content="#0b1326" />
+<link rel="canonical" href="https://supratik-das.vercel.app/" />
+
+<!-- ── Open Graph (LinkedIn, Facebook, Slack previews) ── -->
+<meta property="og:type"        content="website" />
+<meta property="og:url"         content="https://supratik-das.vercel.app/" />
+<meta property="og:site_name"   content="Supratik Das — Portfolio" />
+<meta property="og:title"       content="Supratik Das | Frontend Developer | JavaScript, Angular & Backbone.js" />
+<meta property="og:description" content="Software Development Analyst with 7+ years building high-traffic web apps. Expert in JavaScript, Angular, Backbone.js, and Fabric.js canvas editors. Currently at Valuelabs (Shutterfly)." />
+<meta property="og:locale"      content="en_US" />
+
+<!-- ── Twitter / X Card ── -->
+<meta name="twitter:card"        content="summary" />
+<meta name="twitter:title"       content="Supratik Das | Frontend Developer | JavaScript & Angular" />
+<meta name="twitter:description" content="Software Development Analyst with 7+ years building scalable web apps. JavaScript, Angular, Backbone.js, Fabric.js. Based in Hyderabad, India." />
+<meta name="twitter:creator"     content="@supratik01" />
+
+<!-- ── JSON-LD Structured Data ── -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Person",
+      "@id": "https://supratik-das.vercel.app/#person",
+      "name": "Supratik Das",
+      "jobTitle": "Software Development Analyst",
+      "description": "Frontend developer with 7+ years of experience building scalable, performance-critical web applications. Deep expertise in JavaScript, Angular, Backbone.js, and Fabric.js canvas editors.",
+      "url": "https://supratik-das.vercel.app/",
+      "email": "supratikdas01@gmail.com",
+      "telephone": "+91-8100434836",
+      "image": "https://supratik-das.vercel.app/og-image.png",
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "Hyderabad",
+        "addressRegion": "Telangana",
+        "addressCountry": "IN"
+      },
+      "sameAs": [
+        "https://linkedin.com/in/supratik-das-721138201",
+        "https://github.com/supratik01"
+      ],
+      "alumniOf": [
+        {
+          "@type": "CollegeOrUniversity",
+          "name": "West Bengal State University"
+        }
+      ],
+      "knowsAbout": [
+        "JavaScript", "ES6+", "Angular", "Backbone.js", "React",
+        "Fabric.js", "HTML5", "CSS3", "SCSS", "Node.js",
+        "REST APIs", "PostgreSQL", "MongoDB", "Google Analytics",
+        "Frontend Architecture", "Canvas Editors", "AI Engineering"
+      ],
+      "worksFor": {
+        "@type": "Organization",
+        "name": "Valuelabs",
+        "url": "https://www.valuelabs.com"
+      },
+      "hasCredential": {
+        "@type": "EducationalOccupationalCredential",
+        "name": "Angular Advanced Workshop",
+        "credentialCategory": "certificate",
+        "recognizedBy": { "@type": "Organization", "name": "Udemy" }
+      }
+    },
+    {
+      "@type": "WebSite",
+      "@id": "https://supratik-das.vercel.app/#website",
+      "url": "https://supratik-das.vercel.app/",
+      "name": "Supratik Das — Portfolio",
+      "description": "Portfolio of Supratik Das, a frontend developer and software analyst specialising in JavaScript, Angular, and Backbone.js.",
+      "inLanguage": "en-US",
+      "author": { "@id": "https://supratik-das.vercel.app/#person" }
+    },
+    {
+      "@type": "WebPage",
+      "@id": "https://supratik-das.vercel.app/#webpage",
+      "url": "https://supratik-das.vercel.app/",
+      "name": "Supratik Das | Frontend Developer Portfolio",
+      "isPartOf": { "@id": "https://supratik-das.vercel.app/#website" },
+      "about": { "@id": "https://supratik-das.vercel.app/#person" },
+      "description": "Portfolio page of Supratik Das showcasing 7+ years of frontend engineering experience, key projects, tech stack, and professional history.",
+      "inLanguage": "en-US",
+      "breadcrumb": {
+        "@type": "BreadcrumbList",
+        "itemListElement": [{ "@type": "ListItem", "position": 1, "name": "Home", "item": "https://supratik-das.vercel.app/" }]
+      }
+    }
+  ]
+}
+</script>
+
 <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
 <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;700;800&family=Inter:wght@400;500;600&family=Space+Grotesk:wght@400;500;700&display=swap" rel="stylesheet"/>
 <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
@@ -134,52 +233,81 @@
     50% { opacity:1; transform: translateY(4px); }
   }
   .caret-anim { animation: caretPulse 2s ease-in-out infinite; }
+
+  /* responsive section padding */
+  .sec-pad   { padding: 64px 20px; }
+  .sec-pad-sm{ padding: 48px 20px; }
+  @media (min-width: 640px) {
+    .sec-pad    { padding: 80px 40px; }
+    .sec-pad-sm { padding: 64px 40px; }
+  }
+  @media (min-width: 1024px) {
+    .sec-pad    { padding: 120px 80px; }
+    .sec-pad-sm { padding: 80px 80px; }
+  }
+
+  /* mobile nav */
+  .mobile-nav-link { display:block; padding:14px 20px; font-size:11px; letter-spacing:.18em; text-transform:uppercase; color:#c6c6cd; border-bottom:1px solid #1a2035; font-family:'Space Grotesk',sans-serif; transition:color .2s; }
+  .mobile-nav-link:hover { color:#7bd0ff; }
+  #mobile-menu { display:none; }
+  #mobile-menu.open { display:block; }
 </style>
 </head>
 <body class="antialiased">
 
 <!-- ═══════════════════════════════════════ NAV ═══════════════════════════════════════ -->
-<nav class="fixed top-0 left-0 right-0 z-50 flex items-center justify-between px-12 h-16"
+<nav aria-label="Main navigation" class="fixed top-0 left-0 right-0 z-50"
      style="background:rgba(11,19,38,0.88); backdrop-filter:blur(20px); border-bottom:1px solid #2d3449;">
-  <a href="#home" class="font-label font-700 text-sm tracking-widest text-primary">SD.dev</a>
+  <div class="flex items-center justify-between px-6 md:px-12 h-16">
+    <a href="#home" class="font-label font-700 text-sm tracking-widest text-primary">SD.dev</a>
 
-  <ul class="hidden md:flex items-center gap-9 list-none">
-    <li><a href="#home"        class="nav-link font-label text-xs tracking-widest uppercase text-on-surface-variant hover:text-on-surface transition-colors duration-200 relative group">
-      Home
-      <span class="absolute -bottom-1 left-0 right-0 h-px bg-primary scale-x-0 group-hover:scale-x-100 transition-transform origin-left duration-200"></span>
-    </a></li>
-    <li><a href="#about"       class="nav-link font-label text-xs tracking-widest uppercase text-on-surface-variant hover:text-on-surface transition-colors duration-200 relative group">
-      About
-      <span class="absolute -bottom-1 left-0 right-0 h-px bg-primary scale-x-0 group-hover:scale-x-100 transition-transform origin-left duration-200"></span>
-    </a></li>
-    <li><a href="#stack"       class="nav-link font-label text-xs tracking-widest uppercase text-on-surface-variant hover:text-on-surface transition-colors duration-200 relative group">
-      Tech Stack
-      <span class="absolute -bottom-1 left-0 right-0 h-px bg-primary scale-x-0 group-hover:scale-x-100 transition-transform origin-left duration-200"></span>
-    </a></li>
-    <li><a href="#experience"  class="nav-link font-label text-xs tracking-widest uppercase text-on-surface-variant hover:text-on-surface transition-colors duration-200 relative group">
-      Experience
-      <span class="absolute -bottom-1 left-0 right-0 h-px bg-primary scale-x-0 group-hover:scale-x-100 transition-transform origin-left duration-200"></span>
-    </a></li>
-    <li><a href="#projects"    class="nav-link font-label text-xs tracking-widest uppercase text-on-surface-variant hover:text-on-surface transition-colors duration-200 relative group">
-      Projects
-      <span class="absolute -bottom-1 left-0 right-0 h-px bg-primary scale-x-0 group-hover:scale-x-100 transition-transform origin-left duration-200"></span>
-    </a></li>
-    <li><a href="#contact"     class="nav-link font-label text-xs tracking-widest uppercase text-on-surface-variant hover:text-on-surface transition-colors duration-200 relative group">
-      Contact
-      <span class="absolute -bottom-1 left-0 right-0 h-px bg-primary scale-x-0 group-hover:scale-x-100 transition-transform origin-left duration-200"></span>
-    </a></li>
-  </ul>
+    <ul class="hidden md:flex items-center gap-9 list-none">
+      <li><a href="#home"        class="nav-link font-label text-xs tracking-widest uppercase text-on-surface-variant hover:text-on-surface transition-colors duration-200 relative group">Home<span class="absolute -bottom-1 left-0 right-0 h-px bg-primary scale-x-0 group-hover:scale-x-100 transition-transform origin-left duration-200"></span></a></li>
+      <li><a href="#about"       class="nav-link font-label text-xs tracking-widest uppercase text-on-surface-variant hover:text-on-surface transition-colors duration-200 relative group">About<span class="absolute -bottom-1 left-0 right-0 h-px bg-primary scale-x-0 group-hover:scale-x-100 transition-transform origin-left duration-200"></span></a></li>
+      <li><a href="#stack"       class="nav-link font-label text-xs tracking-widest uppercase text-on-surface-variant hover:text-on-surface transition-colors duration-200 relative group">Tech Stack<span class="absolute -bottom-1 left-0 right-0 h-px bg-primary scale-x-0 group-hover:scale-x-100 transition-transform origin-left duration-200"></span></a></li>
+      <li><a href="#experience"  class="nav-link font-label text-xs tracking-widest uppercase text-on-surface-variant hover:text-on-surface transition-colors duration-200 relative group">Experience<span class="absolute -bottom-1 left-0 right-0 h-px bg-primary scale-x-0 group-hover:scale-x-100 transition-transform origin-left duration-200"></span></a></li>
+      <li><a href="#projects"    class="nav-link font-label text-xs tracking-widest uppercase text-on-surface-variant hover:text-on-surface transition-colors duration-200 relative group">Projects<span class="absolute -bottom-1 left-0 right-0 h-px bg-primary scale-x-0 group-hover:scale-x-100 transition-transform origin-left duration-200"></span></a></li>
+      <li><a href="#contact"     class="nav-link font-label text-xs tracking-widest uppercase text-on-surface-variant hover:text-on-surface transition-colors duration-200 relative group">Contact<span class="absolute -bottom-1 left-0 right-0 h-px bg-primary scale-x-0 group-hover:scale-x-100 transition-transform origin-left duration-200"></span></a></li>
+    </ul>
 
-  <a href="mailto:supratikdas01@gmail.com"
-     class="font-label text-xs tracking-widest uppercase px-5 py-2.5 rounded transition-all duration-200"
-     style="background:linear-gradient(135deg,#7bd0ff,#4edea3); color:#00354a; font-weight:700;">
-    Get in touch
-  </a>
+    <div class="flex items-center gap-3">
+      <a href="mailto:supratikdas01@gmail.com"
+         class="hidden md:block font-label text-xs tracking-widest uppercase px-5 py-2.5 rounded transition-all duration-200"
+         style="background:linear-gradient(135deg,#7bd0ff,#4edea3); color:#00354a; font-weight:700;">
+        Get in touch
+      </a>
+      <!-- hamburger -->
+      <button id="nav-toggle" class="md:hidden flex flex-col gap-1.5 p-2" aria-label="Toggle menu">
+        <span class="block w-5 h-px transition-all duration-200" style="background:#c6c6cd;"></span>
+        <span class="block w-5 h-px transition-all duration-200" style="background:#c6c6cd;"></span>
+        <span class="block w-5 h-px transition-all duration-200" style="background:#c6c6cd;"></span>
+      </button>
+    </div>
+  </div>
+
+  <!-- mobile menu -->
+  <div id="mobile-menu" style="background:rgba(11,19,38,0.98); border-top:1px solid #1a2035;">
+    <a href="#home"       class="mobile-nav-link">Home</a>
+    <a href="#about"      class="mobile-nav-link">About</a>
+    <a href="#stack"      class="mobile-nav-link">Tech Stack</a>
+    <a href="#experience" class="mobile-nav-link">Experience</a>
+    <a href="#projects"   class="mobile-nav-link">Projects</a>
+    <a href="#contact"    class="mobile-nav-link">Contact</a>
+    <div class="px-5 py-4">
+      <a href="mailto:supratikdas01@gmail.com"
+         class="block text-center font-label text-xs tracking-widest uppercase px-5 py-3 rounded transition-all duration-200"
+         style="background:linear-gradient(135deg,#7bd0ff,#4edea3); color:#00354a; font-weight:700;">
+        Get in touch
+      </a>
+    </div>
+  </div>
 </nav>
 
+<main id="main-content">
+
 <!-- ═══════════════════════════════════════ HERO ═══════════════════════════════════════ -->
-<section id="home" class="relative min-h-screen flex flex-col justify-center overflow-hidden"
-         style="padding: 120px 80px 80px;">
+<section id="home" class="sec-pad relative min-h-screen flex flex-col justify-center overflow-hidden"
+         style="padding-top:120px; padding-bottom:80px;">
   <div class="grid-bg absolute inset-0 pointer-events-none"></div>
   <div class="orb-primary absolute pointer-events-none" style="width:520px;height:520px;top:-80px;right:-80px;border-radius:50%;filter:blur(100px);"></div>
   <div class="orb-tertiary absolute pointer-events-none" style="width:360px;height:360px;bottom:60px;left:-60px;border-radius:50%;filter:blur(100px);"></div>
@@ -255,7 +383,7 @@
 </section>
 
 <!-- ═══════════════════════════════════════ ABOUT ═══════════════════════════════════════ -->
-<section id="about" style="padding:120px 80px; background:#0f1726; border-top:1px solid #2d3449; border-bottom:1px solid #2d3449;">
+<section id="about" class="sec-pad" style="background:#0f1726; border-top:1px solid #2d3449; border-bottom:1px solid #2d3449;">
   <div class="flex items-center gap-3 mb-5 fade-up">
     <span class="font-label text-xs tracking-[0.22em] uppercase" style="color:#4edea3;">01 — Profile</span>
     <span class="w-10 h-px opacity-40" style="background:#4edea3;"></span>
@@ -330,7 +458,7 @@
 </section>
 
 <!-- ═══════════════════════════════════════ TECH STACK ═══════════════════════════════════════ -->
-<section id="stack" style="padding:120px 80px; background:#0b1326;">
+<section id="stack" class="sec-pad" style="background:#0b1326;">
   <!-- header -->
   <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 mb-20">
     <div class="fade-up">
@@ -384,7 +512,7 @@
       </div>
 
       <!-- skill cards -->
-      <div class="lg:col-span-3 grid grid-cols-3 gap-3">
+      <div class="lg:col-span-3 grid grid-cols-2 md:grid-cols-3 gap-3">
         <!-- card helper macro inlined -->
         <div class="skill-card rounded-lg p-5 border cursor-default transition-all duration-200 hover:-translate-y-0.5" style="background:#131b2e; border-color:#2d3449;">
           <div class="flex justify-between items-start mb-4">
@@ -513,7 +641,7 @@
       </div>
     </div>
 
-    <div class="grid grid-cols-3 md:grid-cols-6 border rounded-lg overflow-hidden" style="background:#2d3449; gap:1px;">
+    <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-6 border rounded-lg overflow-hidden" style="background:#2d3449; gap:1px;">
       <div class="py-8 px-4 text-center transition-colors duration-200 cursor-default hover:bg-surface-container-high" style="background:#131b2e;">
         <div class="text-2xl mb-3">🐙</div>
         <div class="font-headline font-bold text-xs mb-1" style="color:#dae2fd;">Git / Bitbucket</div>
@@ -549,7 +677,7 @@
 </section>
 
 <!-- ═══════════════════════════════════════ EXPERIENCE ═══════════════════════════════════════ -->
-<section id="experience" style="padding:120px 80px; background:#0f1726; border-top:1px solid #2d3449; border-bottom:1px solid #2d3449;">
+<section id="experience" class="sec-pad" style="background:#0f1726; border-top:1px solid #2d3449; border-bottom:1px solid #2d3449;">
   <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 mb-16">
     <div class="fade-up">
       <div class="flex items-center gap-3 mb-5">
@@ -624,7 +752,7 @@
 </section>
 
 <!-- ═══════════════════════════════════════ PROJECTS ═══════════════════════════════════════ -->
-<section id="projects" style="padding:120px 80px; background:#0b1326;">
+<section id="projects" class="sec-pad" style="background:#0b1326;">
   <div class="flex items-center gap-3 mb-5 fade-up">
     <span class="font-label text-xs tracking-[0.22em] uppercase" style="color:#4edea3;">04 — Selected Work</span>
     <span class="w-10 h-px opacity-40" style="background:#4edea3;"></span>
@@ -676,7 +804,7 @@
 </section>
 
 <!-- ═══════════════════════════════════════ PRODUCTIVITY ═══════════════════════════════════════ -->
-<section style="padding:80px 80px; background:#0f1726; border-top:1px solid #2d3449;">
+<section class="sec-pad-sm" style="background:#0f1726; border-top:1px solid #2d3449;">
   <div class="flex items-center gap-3 mb-4 fade-up">
     <span class="font-label text-xs tracking-[0.22em] uppercase" style="color:#4edea3;">05 — Daily Tooling</span>
     <span class="w-10 h-px opacity-40" style="background:#4edea3;"></span>
@@ -684,7 +812,7 @@
   <h2 class="font-headline font-extrabold mb-10 fade-up" style="font-size:clamp(30px,4vw,48px); letter-spacing:-0.02em; color:#dae2fd;">
     Productivity Stack<span style="color:#4edea3;">.</span>
   </h2>
-  <div class="grid grid-cols-3 md:grid-cols-6 border rounded-lg overflow-hidden fade-up" style="background:#2d3449; gap:1px;">
+  <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-6 border rounded-lg overflow-hidden fade-up" style="background:#2d3449; gap:1px;">
     <div class="py-7 px-4 text-center cursor-default transition-colors duration-200 hover:bg-surface-container-high" style="background:#131b2e;">
       <div class="text-2xl mb-3">💻</div>
       <div class="font-label text-xs tracking-wide uppercase" style="color:#c6c6cd;">VS Code</div>
@@ -713,7 +841,7 @@
 </section>
 
 <!-- ═══════════════════════════════════════ CONTACT ═══════════════════════════════════════ -->
-<section id="contact" style="padding:120px 80px 80px; background:#0b1326; border-top:1px solid #2d3449; text-align:center;">
+<section id="contact" class="sec-pad" style="background:#0b1326; border-top:1px solid #2d3449; text-align:center;">
   <div class="max-w-2xl mx-auto">
     <div class="flex items-center justify-center gap-3 mb-6 fade-up">
       <span class="font-label text-xs tracking-[0.22em] uppercase" style="color:#4edea3;">06 — Let's Connect</span>
@@ -761,8 +889,10 @@
   </div>
 </section>
 
+</main>
+
 <!-- ═══════════════════════════════════════ FOOTER ═══════════════════════════════════════ -->
-<footer class="flex items-center justify-between px-20 py-7" style="background:#060e20; border-top:1px solid #2d3449;">
+<footer class="flex flex-col sm:flex-row items-center sm:justify-between gap-4 px-6 sm:px-12 lg:px-20 py-7 text-center sm:text-left" style="background:#060e20; border-top:1px solid #2d3449;">
   <span class="font-label text-xs tracking-widest" style="color:#909097;">Supratik Das</span>
   <span class="font-label text-xs tracking-wide" style="color:#45464d;">© 2026 · Engineered with precision.</span>
   <div class="flex gap-6">
@@ -820,6 +950,25 @@
   document.querySelectorAll('.skill-card').forEach(card => {
     card.addEventListener('mouseenter', () => { card.style.borderColor = 'rgba(78,222,163,0.3)'; card.style.background = '#171f33'; });
     card.addEventListener('mouseleave', () => { card.style.borderColor = '#2d3449'; card.style.background = '#131b2e'; });
+  });
+
+  // ── MOBILE NAV TOGGLE ──
+  const navToggle = document.getElementById('nav-toggle');
+  const mobileMenu = document.getElementById('mobile-menu');
+  const bars = navToggle.querySelectorAll('span');
+  navToggle.addEventListener('click', () => {
+    const open = mobileMenu.classList.toggle('open');
+    bars[0].style.transform = open ? 'translateY(6px) rotate(45deg)' : '';
+    bars[1].style.opacity   = open ? '0' : '1';
+    bars[2].style.transform = open ? 'translateY(-6px) rotate(-45deg)' : '';
+  });
+  // close mobile menu on link click
+  document.querySelectorAll('#mobile-menu a').forEach(a => {
+    a.addEventListener('click', () => {
+      mobileMenu.classList.remove('open');
+      bars[0].style.transform = bars[2].style.transform = '';
+      bars[1].style.opacity = '1';
+    });
   });
 
   // ── SMOOTH SCROLL ──

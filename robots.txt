@@ -1,0 +1,5 @@
+User-agent: *
+Allow: /
+Disallow: /initial-copy.html
+
+Sitemap: https://supratik-das.vercel.app/sitemap.xml
