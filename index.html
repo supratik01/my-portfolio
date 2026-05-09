@@ -367,19 +367,47 @@
     </a>
   </div>
 
-  <!-- right stats -->
-  <div class="absolute right-20 top-1/2 -translate-y-1/2 flex-col gap-10 hidden xl:flex">
-    <div class="text-right">
-      <div class="font-headline font-extrabold" style="font-size:48px; color:#7bd0ff; line-height:1;">7+</div>
-      <div class="font-label text-xs tracking-widest uppercase mt-1" style="color:#909097;">Years Exp.</div>
+  <!-- profile photo + stats -->
+  <div class="absolute right-20 top-1/2 -translate-y-1/2 hidden xl:flex flex-col items-center gap-10">
+    <!-- photo with gradient ring + soft glow -->
+    <div class="relative">
+      <!-- glow halo -->
+      <div class="absolute -inset-6 rounded-full pointer-events-none"
+           style="background:radial-gradient(circle, rgba(123,208,255,0.22) 0%, rgba(78,222,163,0.12) 55%, transparent 75%); filter:blur(28px);"></div>
+      <!-- gradient border ring -->
+      <div class="relative rounded-full"
+           style="padding:2px; background:linear-gradient(135deg,#7bd0ff 0%, #4edea3 100%);">
+        <div class="rounded-full overflow-hidden" style="width:340px; height:340px; background:#131b2e;">
+          <img src="profile.jpeg"
+               alt="Supratik Das — Frontend Developer"
+               width="340" height="340"
+               loading="eager"
+               class="w-full h-full object-cover" />
+        </div>
+      </div>
+      <!-- live status dot -->
+      <span class="absolute top-3 right-3 flex h-3 w-3">
+        <span class="absolute inline-flex h-full w-full rounded-full opacity-75 animate-ping" style="background:#4edea3;"></span>
+        <span class="relative inline-flex rounded-full h-3 w-3" style="background:#4edea3; box-shadow:0 0 12px rgba(78,222,163,0.8);"></span>
+      </span>
     </div>
-    <div class="text-right">
-      <div class="font-headline font-extrabold" style="font-size:48px; color:#4edea3; line-height:1;">3</div>
-      <div class="font-label text-xs tracking-widest uppercase mt-1" style="color:#909097;">Companies</div>
-    </div>
-    <div class="text-right">
-      <div class="font-headline font-extrabold" style="font-size:48px; color:#bcc7de; line-height:1;">∞</div>
-      <div class="font-label text-xs tracking-widest uppercase mt-1" style="color:#909097;">Coffee</div>
+
+    <!-- stats row beneath photo -->
+    <div class="flex items-center gap-8">
+      <div class="text-center">
+        <div class="font-headline font-extrabold" style="font-size:32px; color:#7bd0ff; line-height:1;">7+</div>
+        <div class="font-label text-xs tracking-widest uppercase mt-1" style="color:#909097;">Years</div>
+      </div>
+      <div class="w-px h-8" style="background:#2d3449;"></div>
+      <div class="text-center">
+        <div class="font-headline font-extrabold" style="font-size:32px; color:#4edea3; line-height:1;">3</div>
+        <div class="font-label text-xs tracking-widest uppercase mt-1" style="color:#909097;">Companies</div>
+      </div>
+      <div class="w-px h-8" style="background:#2d3449;"></div>
+      <div class="text-center">
+        <div class="font-headline font-extrabold" style="font-size:32px; color:#bcc7de; line-height:1;">∞</div>
+        <div class="font-label text-xs tracking-widest uppercase mt-1" style="color:#909097;">Coffee</div>
+      </div>
     </div>
   </div>
 
