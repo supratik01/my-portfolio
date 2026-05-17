@@ -131,7 +131,7 @@
 <script defer src="/_vercel/insights/script.js"></script>
 
 <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
-<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;700;800&family=Inter:wght@400;500;600&family=Space+Grotesk:wght@400;500;700&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;600;700;800&family=Onest:wght@300;400;500;600;700&display=swap" rel="stylesheet"/>
 <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
 <script id="tailwind-config">
   tailwind.config = {
@@ -189,8 +189,8 @@
         },
         fontFamily: {
           "headline": ["Manrope"],
-          "body": ["Inter"],
-          "label": ["Space Grotesk"]
+          "body": ["Onest"],
+          "label": ["Manrope"]
         },
         borderRadius: { "DEFAULT": "0.125rem", "lg": "0.25rem", "xl": "0.5rem", "full": "0.75rem" },
       },
@@ -202,7 +202,7 @@
     font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
   }
   html { scroll-behavior: smooth; }
-  body { background-color: #0b1326; color: #dae2fd; font-family: 'Inter', sans-serif; }
+  body { background-color: #0b1326; color: #dae2fd; font-family: 'Onest', sans-serif; }
   ::-webkit-scrollbar { width: 3px; }
   ::-webkit-scrollbar-track { background: #0b1326; }
   ::-webkit-scrollbar-thumb { background: #7bd0ff; border-radius: 2px; }
@@ -274,7 +274,7 @@
   }
 
   /* mobile nav */
-  .mobile-nav-link { display:block; padding:14px 20px; font-size:11px; letter-spacing:.18em; text-transform:uppercase; color:#c6c6cd; border-bottom:1px solid #1a2035; font-family:'Space Grotesk',sans-serif; transition:color .2s; }
+  .mobile-nav-link { display:block; padding:14px 20px; font-size:11px; letter-spacing:.18em; text-transform:uppercase; color:#c6c6cd; border-bottom:1px solid #1a2035; font-family:'Manrope',sans-serif; transition:color .2s; }
   .mobile-nav-link:hover { color:#7bd0ff; }
   #mobile-menu { display:none; }
   #mobile-menu.open { display:block; }
@@ -355,7 +355,7 @@
   <h1 class="font-headline font-extrabold leading-none tracking-tight mb-4 fade-up show"
       style="font-size:clamp(60px,9vw,116px); letter-spacing:-0.03em;">
     <span class="block" style="color:#dae2fd;">Supratik</span>
-    <span class="block" style="background:linear-gradient(135deg, #7bd0ff 0%, #4edea3 100%); -webkit-background-clip:text; -webkit-text-fill-color:transparent; background-clip:text;">Das.</span>
+    <span class="block" style="color:#7bd0ff;">Das.</span>
   </h1>
 
   <!-- subtitle -->
@@ -364,7 +364,7 @@
   </p>
 
   <!-- desc -->
-  <p class="text-base leading-relaxed mb-12 max-w-lg fade-up show delay-2" style="color:#c6c6cd; font-family:'Inter',sans-serif;">
+  <p class="text-base leading-relaxed mb-12 max-w-lg fade-up show delay-2" style="color:#c6c6cd; font-family:'Onest',sans-serif;">
     7+ years building scalable web applications end-to-end. Full-stack expertise across
     JavaScript, Node.js, Angular, React, and Core Java — shipping features on high-traffic
     e-commerce platforms.
@@ -418,21 +418,19 @@
       </span>
     </div>
 
-    <!-- stats row beneath photo -->
-    <div class="flex items-center gap-8">
-      <div class="text-center">
-        <div class="count-up font-headline font-extrabold" data-target="7" data-suffix="+" style="font-size:32px; color:#7bd0ff; line-height:1;">0+</div>
-        <div class="font-label text-xs tracking-widest uppercase mt-1" style="color:#909097;">Years</div>
+    <!-- credentials strip -->
+    <div class="flex flex-col gap-3 w-full max-w-xs">
+      <div class="flex items-baseline justify-between gap-4 pb-3" style="border-bottom:1px solid #2d3449;">
+        <span class="font-body text-xs" style="color:#909097;">Experience</span>
+        <span class="font-headline font-semibold text-sm" style="color:#7bd0ff;"><span class="count-up" data-target="7" data-suffix="+">0+</span> years</span>
       </div>
-      <div class="w-px h-8" style="background:#2d3449;"></div>
-      <div class="text-center">
-        <div class="count-up font-headline font-extrabold" data-target="3" style="font-size:32px; color:#4edea3; line-height:1;">0</div>
-        <div class="font-label text-xs tracking-widest uppercase mt-1" style="color:#909097;">Companies</div>
+      <div class="flex items-baseline justify-between gap-4 pb-3" style="border-bottom:1px solid #2d3449;">
+        <span class="font-body text-xs" style="color:#909097;">Companies</span>
+        <span class="font-headline font-semibold text-sm" style="color:#4edea3;"><span class="count-up" data-target="3">0</span> in total</span>
       </div>
-      <div class="w-px h-8" style="background:#2d3449;"></div>
-      <div class="text-center">
-        <div class="font-headline font-extrabold" style="font-size:32px; color:#bcc7de; line-height:1;">∞</div>
-        <div class="font-label text-xs tracking-widest uppercase mt-1" style="color:#909097;">Coffee</div>
+      <div class="flex items-baseline justify-between gap-4">
+        <span class="font-body text-xs" style="color:#909097;">Open to</span>
+        <span class="font-headline font-semibold text-sm" style="color:#bcc7de;">Remote globally</span>
       </div>
     </div>
   </div>
@@ -447,7 +445,7 @@
 <!-- ═══════════════════════════════════════ ABOUT ═══════════════════════════════════════ -->
 <section id="about" class="sec-pad" style="background:#0f1726; border-top:1px solid #2d3449; border-bottom:1px solid #2d3449;">
   <div class="flex items-center gap-3 mb-5 fade-up">
-    <span class="font-label text-xs tracking-[0.22em] uppercase" style="color:#4edea3;">01 — Profile</span>
+    <span class="font-label text-xs tracking-[0.22em] uppercase" style="color:#4edea3;">Profile</span>
     <span class="w-10 h-px opacity-40" style="background:#4edea3;"></span>
   </div>
 
@@ -525,7 +523,7 @@
   <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 mb-20">
     <div class="fade-up">
       <div class="flex items-center gap-3 mb-5">
-        <span class="font-label text-xs tracking-[0.22em] uppercase" style="color:#4edea3;">02 — Architectural Overview</span>
+        <span class="font-label text-xs tracking-[0.22em] uppercase" style="color:#4edea3;">Engineering</span>
         <span class="w-10 h-px opacity-40" style="background:#4edea3;"></span>
       </div>
       <h2 class="font-headline font-extrabold leading-none tracking-tight"
@@ -554,7 +552,7 @@
           Crafting pixel-perfect, accessible, and performant interfaces that bridge human intent with technical execution.
         </p>
         <!-- mastery bars -->
-        <div class="border-l-2 pl-4" style="border-color:#4edea3;">
+        <div style="padding:14px 16px; background:rgba(78,222,163,0.05); border-radius:6px; border:1px solid rgba(78,222,163,0.14);">
           <div class="font-label text-xs tracking-widest uppercase mb-3" style="color:#909097;">Core Expertise</div>
           <div class="flex justify-between items-baseline mb-1">
             <span class="font-headline font-bold text-sm" style="color:#dae2fd;">Angular &amp; Backbone.js</span>
@@ -575,7 +573,6 @@
 
       <!-- skill cards -->
       <div class="lg:col-span-3 grid grid-cols-2 md:grid-cols-3 gap-3">
-        <!-- card helper macro inlined -->
         <div class="skill-card rounded-lg p-5 border cursor-default transition-all duration-200 hover:-translate-y-0.5" style="background:#131b2e; border-color:#2d3449;">
           <div class="flex justify-between items-start mb-4">
             <span class="text-xl">🔷</span>
@@ -671,7 +668,7 @@
       <p class="text-xs leading-relaxed mb-6" style="color:#909097;">
         Architecting robust, secure backends that serve as the dependable foundation for modern digital experiences.
       </p>
-      <div class="border-l-2 pl-4" style="border-color:#7bd0ff;">
+      <div style="padding:14px 16px; background:rgba(123,208,255,0.05); border-radius:6px; border:1px solid rgba(123,208,255,0.14);">
         <div class="font-label text-xs tracking-widest uppercase mb-2" style="color:#909097;">Core Expertise</div>
         <div class="flex justify-between items-baseline mb-1">
           <span class="font-headline font-bold text-sm" style="color:#dae2fd;">System Design</span>
@@ -743,7 +740,7 @@
   <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 mb-16">
     <div class="fade-up">
       <div class="flex items-center gap-3 mb-5">
-        <span class="font-label text-xs tracking-[0.22em] uppercase" style="color:#4edea3;">03 — Career Timeline</span>
+        <span class="font-label text-xs tracking-[0.22em] uppercase" style="color:#4edea3;">Career</span>
         <span class="w-10 h-px opacity-40" style="background:#4edea3;"></span>
       </div>
       <h2 class="font-headline font-extrabold leading-none tracking-tight"
@@ -816,7 +813,7 @@
 <!-- ═══════════════════════════════════════ PROJECTS ═══════════════════════════════════════ -->
 <section id="projects" class="sec-pad" style="background:#0b1326;">
   <div class="flex items-center gap-3 mb-5 fade-up">
-    <span class="font-label text-xs tracking-[0.22em] uppercase" style="color:#4edea3;">04 — Selected Work</span>
+    <span class="font-label text-xs tracking-[0.22em] uppercase" style="color:#4edea3;">Selected Work</span>
     <span class="w-10 h-px opacity-40" style="background:#4edea3;"></span>
   </div>
   <h2 class="font-headline font-extrabold leading-none tracking-tight mb-14 fade-up"
@@ -882,7 +879,7 @@
 <!-- ═══════════════════════════════════════ PRODUCTIVITY ═══════════════════════════════════════ -->
 <section class="sec-pad-sm" style="background:#0f1726; border-top:1px solid #2d3449;">
   <div class="flex items-center gap-3 mb-4 fade-up">
-    <span class="font-label text-xs tracking-[0.22em] uppercase" style="color:#4edea3;">05 — Daily Tooling</span>
+    <span class="font-label text-xs tracking-[0.22em] uppercase" style="color:#4edea3;">Daily Tooling</span>
     <span class="w-10 h-px opacity-40" style="background:#4edea3;"></span>
   </div>
   <h2 class="font-headline font-extrabold mb-10 fade-up" style="font-size:clamp(30px,4vw,48px); letter-spacing:-0.02em; color:#dae2fd;">
@@ -920,11 +917,11 @@
 <section id="contact" class="sec-pad" style="background:#0b1326; border-top:1px solid #2d3449; text-align:center;">
   <div class="max-w-2xl mx-auto">
     <div class="flex items-center justify-center gap-3 mb-6 fade-up">
-      <span class="font-label text-xs tracking-[0.22em] uppercase" style="color:#4edea3;">06 — Let's Connect</span>
+      <span class="font-label text-xs tracking-[0.22em] uppercase" style="color:#4edea3;">Let's Connect</span>
     </div>
     <h2 class="font-headline font-extrabold leading-none tracking-tight mb-6 fade-up"
         style="font-size:clamp(44px,7vw,80px); letter-spacing:-0.03em; color:#dae2fd;">
-      Let's Build<br>Something<br><span style="background:linear-gradient(135deg,#7bd0ff,#4edea3);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;">Great.</span>
+      Let's Build<br>Something<br><span style="color:#4edea3;">Great.</span>
     </h2>
     <p class="text-sm leading-loose mb-12 fade-up delay-1 max-w-md mx-auto" style="color:#909097;">
       Open to new opportunities, freelance projects, and interesting conversations.
