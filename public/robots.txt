@@ -1,0 +1,5 @@
+User-agent: *
+Allow: /
+Disallow: /initial-copy.html
+
+Sitemap: https://bytefront.dev/sitemap.xml

@@ -1,3 +1,18 @@
 .DS_Store
 initial-copy.html
 node_modules/
+dist/
+*.local
+.vercel
+dist-tsnode/
+*.tsbuildinfo
+
+# Local tooling
+.claude/
+
+# Scratch / backup copies of the old static site
+index_3d_copy.html
+old-portfolio-page.html
+static-portfolio-backup.html
+# Root master copy of the profile photo (served copy lives in public/)
+/ai_profile.png

@@ -1,23 +1,40 @@
 {
-  "name": "primary",
-  "version": "1.0.0",
-  "description": "Personal portfolio website for **[bytefront.dev](https://bytefront.dev)** — built as a single-page static site with no framework or build step required.",
-  "main": "index.js",
+  "name": "supratik-portfolio",
+  "version": "2.0.0",
+  "description": "Personal portfolio for bytefront.dev — 3D/interactive build with React, Three.js, and Framer Motion.",
+  "type": "module",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "dev": "vite",
+    "build": "tsc -b && vite build",
+    "preview": "vite preview"
   },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/supratik01/my-portfolio.git"
   },
-  "keywords": [],
-  "author": "",
+  "author": "Supratik Das",
   "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/supratik01/my-portfolio/issues"
-  },
-  "homepage": "https://github.com/supratik01/my-portfolio#readme",
   "dependencies": {
-    "@vercel/analytics": "^2.0.1"
+    "@react-three/drei": "^9.114.0",
+    "@react-three/fiber": "^8.17.10",
+    "@react-three/postprocessing": "^2.16.3",
+    "@vercel/analytics": "^2.0.1",
+    "framer-motion": "^11.11.17",
+    "lucide-react": "^0.454.0",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1",
+    "react-icons": "^5.3.0",
+    "three": "^0.169.0"
+  },
+  "devDependencies": {
+    "@types/react": "^18.3.12",
+    "@types/react-dom": "^18.3.1",
+    "@types/three": "^0.169.0",
+    "@vitejs/plugin-react": "^4.3.3",
+    "autoprefixer": "^10.4.20",
+    "postcss": "^8.4.49",
+    "tailwindcss": "^3.4.14",
+    "typescript": "^5.6.3",
+    "vite": "^5.4.11"
   }
 }
