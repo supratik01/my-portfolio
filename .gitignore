@@ -14,5 +14,6 @@ dist-tsnode/
 index_3d_copy.html
 old-portfolio-page.html
 static-portfolio-backup.html
-# Root master copy of the profile photo (served copy lives in public/)
+# Root master copies of source photos (served/generated copies live in public/)
 /ai_profile.png
+/og-new.jpg
