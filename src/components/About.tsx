@@ -24,8 +24,10 @@ export default function About() {
           }
         >
           <div className="grid md:h-[32rem] md:grid-cols-[0.82fr_1.18fr]">
-            {/* portrait */}
-            <div className="relative min-h-[15rem]">
+            {/* portrait — 5:4 on mobile keeps ~60% of the frame in view (a fixed
+                height cropped it to under half on narrow screens); the desktop
+                grid row height takes over from md up. */}
+            <div className="relative aspect-[5/4] md:aspect-auto md:min-h-[15rem]">
               <img
                 src="/ai_profile.png"
                 alt="Supratik Das, Senior Full Stack Engineer"
