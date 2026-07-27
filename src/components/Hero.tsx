@@ -3,6 +3,7 @@ import { AnimatePresence, motion, useReducedMotion } from "framer-motion";
 import { ArrowDown, ArrowUpRight, Check, Download } from "lucide-react";
 import { profile } from "../data";
 import { AnimatedHeading, EXPO, Magnetic } from "./ui/motion-primitives";
+import { ParticleText } from "./ui/particle-text";
 
 const GalaxyScene = lazy(() => import("./GalaxyScene"));
 
@@ -118,10 +119,16 @@ export default function Hero() {
             </span>
           </motion.div>
 
-          <h1 className="font-display text-[clamp(2.9rem,8.5vw,6rem)] font-extrabold leading-[0.94] tracking-tight">
-            <AnimatedHeading text="Supratik" className="block text-ink" delay={0.2} />
-            <AnimatedHeading text="Das." className="block text-cyan" delay={0.35} />
-          </h1>
+          <ParticleText>
+            <h1 className="font-display text-[clamp(2.9rem,8.5vw,6rem)] font-extrabold leading-[0.94] tracking-tight">
+              <span data-particle-line className="block text-ink">
+                <AnimatedHeading text="Supratik" delay={0.2} />
+              </span>
+              <span data-particle-line className="block text-cyan">
+                <AnimatedHeading text="Das." delay={0.35} />
+              </span>
+            </h1>
+          </ParticleText>
 
           <motion.p
             initial={{ opacity: 0 }}
