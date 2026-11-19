@@ -23,7 +23,7 @@ export default function About() {
             </h2>
           }
         >
-          <div className="grid md:h-[32rem] md:grid-cols-[0.82fr_1.18fr]">
+          <div className="grid md:min-h-[32rem] md:grid-cols-[0.82fr_1.18fr]">
             {/* portrait — 5:4 on mobile keeps ~60% of the frame in view (a fixed
                 height cropped it to under half on narrow screens); the desktop
                 grid row height takes over from md up. */}

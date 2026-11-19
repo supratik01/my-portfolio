@@ -20,7 +20,7 @@ export default function TechStack() {
           </h2>
           <Reveal delay={0.1}>
             <p className="mt-4 leading-relaxed text-ink-dim">
-              A stack refined over 7+ years shipping high-traffic consumer platforms — from canvas
+              A stack refined over nearly 8 years shipping high-traffic consumer platforms — from canvas
               editors to REST backends.
             </p>
           </Reveal>
